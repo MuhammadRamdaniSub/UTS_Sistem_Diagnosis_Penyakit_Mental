@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pakar Diagnosis Penyakit</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: rgb(218, 240, 250);}
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; background-color:white;  position: relative; }
+        .header .title { font-size: 35px; font-weight: bold; color:cadetblue; text-align: center; }
+        h2 { font-size: 15px; color: #333; font-weight:bold; text-align: center;  }
+        .container p {font-size: 15px; color: #333; font-weight:lighter; text-align: center; }
+        .gejala-section { margin-bottom: 20px; padding: 15px; border: 1px solid #35b0e9; border-radius: 8px; }
+        .gejala-section h3 { margin-bottom: 10px; }
+        select { width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px;  }
+        button { margin-top: 20px;  font-size: 16px; padding: 7px; cursor: pointer;background-color: darkblue; color:white; border-radius:10px}
+        .button-container { display: flex; justify-content: center; }
+        .result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1 class="title">Tes Kesehatan Mental</h1>
+    </div>
+    <h2>Untuk mengetahui kecenderungan Skizofrenia/PTSD/Depresi/Bipolar/Paranoid</h2>
+    <p>Jawablah kuesioner dibawah ini sesuai yang anda rasakan dengan sejujur-jujurnya </p>
+    <form id="diagnosisForm" action="proses_diagnosis.php" method="post">
+
+        <!-- Skizofrenia -->
+        <div class="gejala-section">
+            <label>Apakah anda sulit tidur? </label>
+            <select name="cfUserSkizofrenia[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda mendengar suara aneh? </label>
+            <select name="cfUserSkizofrenia[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda merasa emosi menjadi datar? </label>
+            <select name="cfUserSkizofrenia[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda merasa pikiran dan berbicara kacau? </label>
+            <select name="cfUserSkizofrenia[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda menjauhkan diri dari lingkungan sosial? </label>
+            <select name="cfUserSkizofrenia[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Mempercayai sesuatu yang tidak nyata? </label>
+            <select name="cfUserSkizofrenia[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+        </div>
+        <!-- PTSD -->
+        <div class="gejala-section">
+            <label>Apakah anda merasa Sulit tidur? </label>
+            <select name="cfUserPTSD[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda merasa kehilangan minat untuk melakukan aktivitas? </label>
+            <select name="cfUserPTSD[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda merasa Ingatan terganggu? </label>
+            <select name="cfUserPTSD[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda merasa takut dan khawatir secara berlebihan? </label>
+            <select name="cfUserPTSD[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda merasa Mimpi buruk? </label>
+            <select name="cfUserPTSD[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda merasa Sulit mengendalikan emosi? </label>
+            <select name="cfUserPTSD[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda menghindari tempat tertentu? </label>
+            <select name="cfUserPTSD[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+        </div>
+
+        <!-- Depresi -->
+        <div class="gejala-section">
+            <label>Apakah anda  merasa diliputi perasaan bersalah berlebihan? </label>
+            <select name="cfUserDepresi[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda merasa hilang motivasi? </label>
+            <select name="cfUserDepresi[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda mudah menangis? </label>
+            <select name="cfUserDepresi[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda sering merasa sedih?</label>
+            <select name="cfUserDepresi[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+        </div>
+
+        <!-- Bipolar -->
+        <div class="gejala-section">
+            <label>Apakah suasana hati anda mudah berubah? </label>
+            <select name="cfUserBipolar[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda merasa daya ingat anda menurun? </label>
+            <select name="cfUserBipolar[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda merasa Bicara terlalu cepat? </label>
+            <select name="cfUserBipolar[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+        </div>
+
+        <!-- Paranoid -->
+        <div class="gejala-section">
+            <label>Apakah anda cenderung merasakan perasaan bermusuhan? </label>
+            <select name="cfUserParanoid[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda mengalami gerakan tubuh dan pikiran yang lambat? </label>
+            <select name="cfUserParanoid[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda sering cemas? </label>
+            <select name="cfUserParanoid[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda mengalami gangguan pernafasan? </label>
+            <select name="cfUserParanoid[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+            <label>Apakah anda mengalami menjauh dari lingkungan sosial? </label>
+            <select name="cfUserParanoid[]" required>
+                <option value="0.2">Tidak Mungkin</option>
+                <option value="0.4">Kemungkinan</option>
+                <option value="0.6">Kemungkinan Besar</option>
+                <option value="0.8">Hampir Pasti</option>
+                <option value="1.0">Pasti</option>
+            </select>
+
+        </div>
+        <div class="button-container">
+            <button type="submit">Hasil Diagnosis</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
